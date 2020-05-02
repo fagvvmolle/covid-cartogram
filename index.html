@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Cartogram / covid-19</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/foundation.css">
+    <style type="text/css">
+
+      body.updating {
+        cursor: wait;
+      }
+
+      #status, div.footer {
+        color: #999;
+        font-size: 0.8em;
+      }
+
+      #map-container {
+        border: 1px solid silver;
+        position: relative;
+      }
+
+      #map {
+        background: #222;
+      }
+
+      path.mapFeature {
+        stroke: #666;
+        stroke-width: .5;
+      }
+
+      path.mapFeature:hover {
+        stroke: #000;
+        opacity: 0.8;
+      }
+
+      div.ttip {
+        color: #222;
+        background: #fff;
+        padding: .5em;
+        text-shadow: #f5f5f5 0 1px 0;
+        border-radius: 2px;
+        box-shadow: 0px 0px 2px 0px #a6a6a6;
+        opacity: 0.9;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      div.footer {
+        border-top: 1px solid silver;
+        margin-top: 20px;
+        text-align: right;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="container" class="row">
+      <div class="column">
+</br>
+        <form>
+			<select id="type">
+				<option value="none" selected="selected">(no scale)</option>
+				<option value="cartogram" >Cartogramme</option>
+			</select>
+
+			<select id="field">
+				<option value="dc" selected="selected">Décès</option>
+				<option value="rea">Réanimations</option>
+				<option value="rad">Guérisons</option>
+				<option value="hosp">Hospitalisations</option>
+			</select>
+			<input type="date" id="date" name="date"  min="2020-03-18" value="2020-03-18">
+			<select id="sexe">
+				<option value="0" selected="selected">Ensemble</option>
+				<option value="1">Homme</option>
+				<option value="2">Femme</option>
+			</select>
+			
+
+        </form>
+      </div>
+      <div class="column">
+        <div id="map-container">
+          <svg id="map" preserveAspectRatio="xMidYMid" viewBox="0 0 960 600"><g id="layer"><g id="mapFeatures"></g></g></svg>
+        <div class="ttip hidden"></div></div>
+      </div>
+    </div>
+    <script src="lib/d3.js"></script>
+    <script src="lib/colorbrewer.js"></script>
+    <script src="lib/topojson.js"></script>
+    <script src="lib/cartogram.js"></script>
+    <script src="lib/jquery.js" type="text/javascript"></script>
+    <script src="lib/map.js" type="text/javascript"></script>
+  
+
+</body></html>
